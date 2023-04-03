@@ -1,0 +1,17 @@
+{
+  "name": "store",
+  "version": "1.0.0",
+  "description": "Store project with pure HTML, CSS and JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "front-end"
+  ],
+  "author": "WEB group 2",
+  "license": "ISC"
+}
