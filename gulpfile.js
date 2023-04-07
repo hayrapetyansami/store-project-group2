@@ -85,5 +85,5 @@ async function watch () {
 }
 
 gulp.task("watch", watch);
-gulp.task("prod", gulp.series(clean, gulp.parallel(htmls, styles, scripts, pictures, fonts)));
-gulp.task("dev", gulp.series("prod", "watch"));
+gulp.task("build", gulp.series(clean, gulp.parallel(htmls, styles, scripts, pictures, fonts)));
+gulp.task("dev", gulp.series("build", "watch"));
