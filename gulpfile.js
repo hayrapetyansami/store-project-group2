@@ -13,11 +13,11 @@ import sourcemaps from "gulp-sourcemaps";
 import babel from "gulp-babel";
 
 const sass = gulpSass(dartSass);
-const prod = "./build";
+const build = "./build";
 
 async function htmls () {
 	return gulp.src("./src/*.html")
-		.pipe(gulp.dest(`${prod}/`))
+		.pipe(gulp.dest(`${build}/`))
 		.pipe(browserSync.stream());
 }
 
@@ -35,7 +35,7 @@ async function styles() {
 			level: 2
 		}))
 		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(`${prod}/css/`))
+		.pipe(gulp.dest(`${build}/css/`))
 		.pipe(browserSync.stream());
 }
 
@@ -50,39 +50,39 @@ async function scripts() {
 			toplevel: true
 		}))
 		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(`${prod}/js/`))
+		.pipe(gulp.dest(`${build}/js/`))
 		.pipe(browserSync.stream());
 }
 
 async function pictures () {
 	return gulp.src("./src/img/**/*")
 		.pipe(imagemin())
-		.pipe(gulp.dest(`${prod}/img/`));
+		.pipe(gulp.dest(`${build}/img/`));
 }
 
 async function clean () {
-	return deleteSync([prod]);
+	return deleteSync([build]);
 }
 
 async function fonts () {
 	return gulp.src("./src/fonts/*")
-		.pipe(gulp.dest(`${prod}/fonts/`));
+		.pipe(gulp.dest(`${build}/fonts/`));
 }
 
 async function watch () {
 	browserSync.init({
 		server: {
-			baseDir: prod
+			baseDir: build
 		},
 		port: 8888,
 		tunnel: false
-	})
+	});
 
 	gulp.watch("./src/*.html", htmls);
 	gulp.watch("./src/sass/**/*.scss", styles);
 	gulp.watch("./src/js/**/*.js", scripts);
 	gulp.watch("./*.html").on("change", browserSync.reload)
-}
+};
 
 gulp.task("watch", watch);
 gulp.task("build", gulp.series(clean, gulp.parallel(htmls, styles, scripts, pictures, fonts)));
