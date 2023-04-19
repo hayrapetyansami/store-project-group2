@@ -263,8 +263,14 @@ main {
 
 					.its__item__review {
 						display: flex;
-						align-items: center;
+						align-items: baseline;
 						gap: 8px;
+
+						.star {
+							svg {
+								display: block;
+							}
+						}
 
 						.comments__count {
 							p {
@@ -279,10 +285,12 @@ main {
 
 					.price__and__review {
 						display: flex;
+						align-items: baseline;
 						gap: 8px;
 						margin-top: 8px;
+
 						.price {
-							p{
+							p {
 								margin: 0;
 								color: $red
 							}
@@ -296,6 +304,97 @@ main {
 							}
 						}
 					}
+				}
+			}
+
+			.its__items__grid {
+				display: grid;
+				grid-gap: 30px;
+				grid-template-columns: repeat(4, 0.5fr);
+				grid-auto-rows: calc(300px - 15px);
+				margin-top: 40px;
+				grid-template-areas:
+					"first first second second"
+					"first first third fourth"
+				;
+
+				.its__items__grid__item {
+					display: flex;
+					flex-flow: column;
+					justify-content: flex-end;
+					background-size:contain !important;
+					background-repeat: no-repeat !important;
+					color: $white;
+					border-radius: $br;
+
+					.its__items__grid__item__content {
+						color: $white;
+						padding: 32px;
+
+						.its__items__grid__item__title {
+							font-family: "Inter";
+							font-size: min(24px, max(12px + 2vw));
+							font-weight: 600;
+							letter-spacing: 2px;
+							margin: 0;
+							width: fit-content;
+						}
+
+						.its__items__grid__item__descr {
+							margin: 8px 0px;
+							font-size: 14px;
+							font-weight: 400;
+							max-width: 250px;
+						}
+
+						.shop_now {
+							display: block;
+							width: fit-content;
+							color: $white;
+							font-weight: 500;
+						}
+					}
+
+					&:nth-child(1) {
+						grid-area: first;
+						background: $black;
+						background-position: center bottom;
+					}
+
+					&:nth-child(2) {
+						grid-area: second;
+						background: $black;
+						background-position: right bottom;
+					}
+
+					&:nth-child(3) {
+						grid-area: third;
+						background: $black;
+						background-position: center center;
+					}
+
+					&:nth-child(4) {
+						grid-area: fourth;
+						background: $black;
+						background-position: center center;
+					}
+				}
+
+				@media screen and (max-width: $tabletL) {
+					grid-template-areas:
+						"first first first first"
+						"second second second second"
+						"third third fourth fourth"
+					;
+				}
+
+				@media screen and (max-width: $mobileL) {
+					grid-template-areas:
+						"first first first first"
+						"second second second second"
+						"third third third third"
+						"fourth fourth fourth fourth"
+					;
 				}
 			}
 
@@ -356,6 +455,7 @@ main {
 				margin: 60px auto 0px auto;
 			}
 		}
+
 		.music__experince__section {
 			display: flex;
 			justify-content: center;
@@ -368,6 +468,7 @@ main {
 
 			.mes__left {
 				flex-basis: 443px;
+
 				h6 {
 					color: $green;
 					font-size: 16px;
@@ -399,6 +500,7 @@ main {
 						overflow: hidden;
 						border-radius: 50% 50%;
 						background: $white;
+
 						p {
 							margin: 0;
 
