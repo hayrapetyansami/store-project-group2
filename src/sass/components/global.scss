@@ -65,6 +65,8 @@
 
 .top__header__section {
 	background: $black;
+	position: relative;
+	z-index: 15;
 
 	.container {
 		display: flex;

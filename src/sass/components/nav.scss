@@ -188,14 +188,20 @@ nav {
 			}
 
 			.nav__menu {
-				display: none;
+				display: block;
 				position: absolute;
 				flex-direction: column;
 				background: #fff;
 				width: 100%;
+				top: -5000px;
 				left: 0;
-				top: 85px;
 				gap: 0px;
+				z-index: 5;
+				transition: all 0.2s;
+
+				&.nav__menu__active {
+					top: 85px;
+				}
 
 				.nav__menu__item {
 					border-bottom: 0.5px solid #eee;
