@@ -84,6 +84,8 @@ async function watch () {
 	gulp.watch("./*.html").on("change", browserSync.reload)
 };
 
+gulp.task("img", pictures);
+
 gulp.task("watch", watch);
 gulp.task("build", gulp.series(clean, gulp.parallel(htmls, styles, scripts, pictures, fonts)));
 gulp.task("dev", gulp.series("build", "watch"));

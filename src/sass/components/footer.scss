@@ -1,0 +1,146 @@
+@import "./variables.scss";
+
+footer {
+	background: $black;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		gap: 88px;
+		color: $mediumWhite;
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		.footer__item {
+			flex: 1;
+
+			h4 {
+				font-size: min(24px, max(12px + 2vw));
+				font-family: "Inter";
+				font-weight: 700;
+				color: $mediumWhite;
+				white-space: nowrap;
+			}
+
+			form {
+				display: flex;
+				position: relative;
+
+				input {
+					padding: 12px 16px;
+					background: transparent;
+					border: 1px solid $white;
+					border-radius: $br;
+					outline: 0;
+					color: $mediumWhite;
+				}
+
+				button {
+					position: absolute;
+					right: 6px;
+					top: 8px;
+					background: transparent;
+					border: none;
+					cursor: pointer;
+				}
+			}
+
+			ul {
+				padding: 0;
+
+				li {
+					list-style-type: none;
+					margin-bottom: 16px;
+
+					a {
+						display: block;
+						text-decoration: none;
+						color: $mediumWhite;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+
+			.app__download {
+				display: grid;
+				grid-gap: 8px;
+				grid-template-areas:
+					"qr playmarket"
+					"qr appstore";
+
+				.app__download__item {
+					a {
+						img {
+							display: block;
+						}
+					}
+
+					&:nth-child(1) {
+						grid-area: qr;
+					}
+
+					&:nth-child(2) {
+						grid-area: playmarket;
+					}
+
+					&:nth-child(3) {
+						grid-area: appstore;
+					}
+				}
+			}
+
+			.download__app__descr {
+				font-size: 12px;
+				opacity: 0.6;
+				color: $mediumWhite;
+			}
+		}
+
+		@media screen and (max-width: 1280px) {
+			flex-wrap: wrap;
+			justify-content: flex-start;
+
+			.footer__item {
+				flex: unset;
+			}
+		}
+
+		@media screen and (max-width: 909px) {
+			gap: 64px;
+		}
+
+		@media screen and (max-width: 768px) {
+			text-align: center;
+			gap: 32px;
+
+			.footer__item {
+				width: 100%;
+
+				form {
+					max-width: fit-content;
+					margin: 0 auto;
+				}
+
+				.app__download {
+					max-width: fit-content;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
+	.copyright {
+		text-align: center;
+		font-size: 15px;
+		padding: 24px 8px;
+		border-top: 1px solid #505050;
+
+		p {
+			margin: 0;
+			color: #505050;
+		}
+	}
+}
